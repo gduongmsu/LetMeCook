@@ -103,9 +103,3 @@ By the end of the semester, we expect:
 - **GitHub Repository:** _this repo_  
 
 ---
-
-## 🛠 Contributing
-1. Clone the repo:  
-   ```bash
-   git clone https://github.com/<org>/<repo>.git
-   cd <repo>
