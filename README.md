@@ -3,8 +3,7 @@
 ## Overview
 This project is a **recipe and ingredient management system** that allows users to:
 - Add and manage ingredients
-- Create and store recipes
-- Search and filter recipes (by pantry, allergies, or dietary restrictions)
+- Search and filter recipes (by allergies, or dietary restrictions)
 - Track health reports (calories, sodium, sugar) per meal
 - Create accounts with personalized settings
 
