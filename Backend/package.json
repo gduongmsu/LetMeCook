@@ -1,1 +1,9 @@
+{
+  "name": "recipe-backend",
+  "type": "module",
+  "main": "server.js",
+  "scripts": { "dev": "nodemon server.js", "start": "node server.js" },
+  "dependencies": { "express": "^4", "cors": "^2", "dotenv": "^16", "node-fetch": "^3" },
+  "devDependencies": { "nodemon": "^3" }
+}
 
