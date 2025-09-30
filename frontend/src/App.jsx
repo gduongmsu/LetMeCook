@@ -1,14 +1,18 @@
-import Home from './pages/home'
-import Navbar from './components/NavagationBar'
+import Home from './pages/Home.jsx'
+import NavigationBar from './components/NavigationBar'
+import { Routes, Route } from 'react-router-dom'
 import './css/App.css'
 
 function App() {
-
   return (
-    <>
-      <Home />
-      {/* <Navbar /> */}
-    </>
+    <div>
+      <NavigationBar />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
 
