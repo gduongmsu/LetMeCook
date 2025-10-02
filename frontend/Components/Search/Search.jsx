@@ -9,7 +9,8 @@ export default function Search(){
 
     useEffect( () => {
         async function fecthFood() {
-            const response = await fetch(`${URL}?query=${query}&apiKey=${apiKey}`);
+            console.log("Query is " + query);
+            const response = await fetch(`${url}?query=${query}&apiKey=${apiKey}`);
             const data = await response.json();
             setResponse(data);
             console.log("Fetchfood Called!");
@@ -20,7 +21,8 @@ export default function Search(){
     
     return (
         <div className="SearchReturn">
-            <p>{resp}</p>
+            <pre>{JSON.stringify(resp, null, 2)}</pre>
+            <p>Hey Can You See This?</p>
         </div>
     )
 }
