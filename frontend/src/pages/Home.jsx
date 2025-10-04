@@ -1,4 +1,4 @@
-// ===== IMPORTS =====
+// ===== IMPORTS ==========================================================================================
 import { useState } from "react"
 import IngredientCard from "../components/IngredientCard"
 import WITH_List from '../components/WITH_List'
@@ -43,7 +43,7 @@ function Home() {
     console.log('Searching with:', withList.map(ing => ing.name))
     console.log('Excluding:', withoutList.map(ing => ing.name))
     
-    // TODO: Implement actual search logic with Spoonacular API
+    // >>TODO: Implement actual search logic with Spoonacular API  <<<<<<<<<<<<<<<<<<<<<<<<<<---------------
     alert(`Searching for: ${searchQuery}\nWith: ${withList.map(i => i.name).join(', ')}\nWithout: ${withoutList.map(i => i.name).join(', ')}`)
   }
 
@@ -51,9 +51,9 @@ function Home() {
   
   /**
    * Handles the start of a drag operation
-   * @param {Event} e - The drag event
-   * @param {Object} ingredient - The ingredient being dragged
-   * @param {string} source - Where the ingredient is being dragged from
+   * {Event} e - The drag event
+   * {Object} ingredient - The ingredient being dragged
+   * {string} source - Where the ingredient is being dragged from
    */
   const handleDragStart = (e, ingredient, source) => {
     setDraggedIngredient({ ingredient, source })
@@ -62,7 +62,7 @@ function Home() {
 
   /**
    * Handles drag over event (required to allow dropping)
-   * @param {Event} e - The drag event
+   * {Event} e - The drag event
    */
   const handleDragOver = (e) => {
     e.preventDefault()
@@ -71,15 +71,34 @@ function Home() {
 
   /**
    * Handles dropping an ingredient into a list
-   * @param {Event} e - The drop event
-   * @param {string} targetList - Which list to drop into ('with' or 'without')
+   * {Event} e - The drop event
+   * {string} targetList - Which list to drop into ('with' or 'without')
    */
   const handleDrop = (e, targetList) => {
     e.preventDefault()
-    
+  
     if (!draggedIngredient) return
 
     const { ingredient, source } = draggedIngredient
+
+    // CHECK: Prevent adding if ingredient already exists in the opposite list
+    if (targetList === 'with') {
+
+      // Don't allow adding to WITH if already in WITHOUT
+      if (withoutList.find(item => item.id === ingredient.id)) {
+        alert(`"${ingredient.name}" is already in the WITHOUT list. Remove it first to add to WITH list.`)
+        setDraggedIngredient(null)
+        return
+      }
+    } else if (targetList === 'without') {
+
+      // Don't allow adding to WITHOUT if already in WITH
+      if (withList.find(item => item.id === ingredient.id)) {
+        alert(`"${ingredient.name}" is already in the WITH list. Remove it first to add to WITHOUT list.`)
+        setDraggedIngredient(null)
+        return
+      }
+    }
 
     // Remove from source list if coming from a list
     if (source === 'with') {
@@ -100,7 +119,7 @@ function Home() {
 
   /**
    * Removes an ingredient from the WITH list
-   * @param {number} indexToRemove - Index of ingredient to remove
+   * {number} indexToRemove - Index of ingredient to remove
    */
   const removeFromWithList = (indexToRemove) => {
     setWithList(withList.filter((_, index) => index !== indexToRemove))
@@ -108,7 +127,7 @@ function Home() {
 
   /**
    * Removes an ingredient from the WITHOUT list
-   * @param {number} indexToRemove - Index of ingredient to remove
+   * {number} indexToRemove - Index of ingredient to remove
    */
   const removeFromWithoutList = (indexToRemove) => {
     setWithoutList(withoutList.filter((_, index) => index !== indexToRemove))
@@ -118,7 +137,7 @@ function Home() {
   return (
     <div className="home">
       {/* Page Title */}
-      <h1>Recipe Lookup by Ingredient</h1>
+      <h1>Recipe Lookup by Ingredients</h1>
 
       {/* Main Layout with Lists */}
       <div className="main-content">
@@ -151,6 +170,7 @@ function Home() {
           {/* Ingredient Cards Grid - with drag functionality */}
           <div className="ingredients-grid">
             {ingredients.map((ingredient) =>
+              
               // Filter: only show ingredients that start with search query
               ingredient.name.toLowerCase().startsWith(searchQuery.toLowerCase()) && (
                 <div
