@@ -4,6 +4,7 @@ import IngredientCard from "../components/IngredientCard"
 import WITH_List from '../components/WITH_List'
 import WITHOUT_List from '../components/WITHOUT_List'
 import "../css/Home.css"
+import Search from "../../Components/Search/Search.jsx"
 
 
 function Home() {
@@ -28,6 +29,10 @@ function Home() {
   const [withList, setWithList] = useState([])           // Ingredients to INCLUDE
   const [withoutList, setWithoutList] = useState([])     // Ingredients to EXCLUDE
   const [draggedIngredient, setDraggedIngredient] = useState(null) // Currently dragging
+  const [searchResults, setSearchResults] = useState([])
+  const handleDataFromSearch = (jsonData) => {
+      setSearchResults(jsonData)
+    }
 
   // ===== SEARCH HANDLERS =========================================================================================
   
@@ -44,7 +49,11 @@ function Home() {
     console.log('Excluding:', withoutList.map(ing => ing.name))
     
     // >>TODO: Implement actual search logic with Spoonacular API  <<<<<<<<<<<<<<<<<<<<<<<<<<---------------
-    alert(`Searching for: ${searchQuery}\nWith: ${withList.map(i => i.name).join(', ')}\nWithout: ${withoutList.map(i => i.name).join(', ')}`)
+    alert(`Searching for: ${searchQuery}\nWith: ${withList.map(i => i.name).join(' ')}\nWithout: ${withoutList.map(i => i.name).join(', ')}`)
+    
+    const ingredientsFromList = withList.map(i => i.name).join(' ');
+    console.log(ingredientsFromList)
+    console.log(searchResults)
   }
 
   // ===== DRAG AND DROP HANDLERS =========================================================================================
@@ -194,6 +203,7 @@ function Home() {
           onDragOver={handleDragOver}
         />
       </div>
+      <Search include={withList.map(i => i.name).join(' ')} handleDataFromSearch={handleDataFromSearch}></Search>
     </div>
   )
 }

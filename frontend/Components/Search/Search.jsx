@@ -3,21 +3,23 @@ import {useEffect, useState} from "react"
 const url = "https://api.spoonacular.com/recipes/complexSearch";
 const apiKey = "a23c1b544e2240b79dfb64cce259d43b";
 
-export default function Search(){
-    const[query, setQuery] = useState("pizza");
+export default function Search({include, handleDataFromSearch}){
+    // const[query, setQuery] = useState("pizza");
     const[resp, setResponse] = useState();
 
     useEffect( () => {
         async function fecthFood() {
-            console.log("Query is " + query);
-            const response = await fetch(`${url}?query=${query}&apiKey=${apiKey}`);
+            console.log("Query is " + include);
+            const response = await fetch(`${url}?query=${include}&apiKey=${apiKey}`);
             const data = await response.json();
             setResponse(data);
+            const dataString = JSON.stringify(data, null, 2);
+            handleDataFromSearch(dataString)
             console.log("Fetchfood Called!");
             console.log(data);
             }
         fecthFood();
-        }, [query])
+        }, [include])
     
     return (
         <div className="SearchReturn">
