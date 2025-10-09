@@ -1,0 +1,12 @@
+{
+  "name": "letmecook",
+  "private": true,
+  "scripts": {
+    "dev:fe": "npm --prefix frontend run dev",
+    "dev:be": "npm --prefix Backend run dev",
+    "dev": "concurrently -n FE,BE -c auto \"npm:dev:fe\" \"npm:dev:be\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
