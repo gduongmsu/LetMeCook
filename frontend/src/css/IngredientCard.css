@@ -1,0 +1,32 @@
+.ingredient-card {
+    background: rgb(102, 38, 38);
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+}
+
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-1 {
+    background-color: blue;
+}
+
+.ingredient-info {
+    background-color: purple;
+    text-align: center;
+}
+
+.ingredient-info h3 {
+    background-color: black;
+}
+
+.ingredient-info p {
+    background-color: grey;
+}

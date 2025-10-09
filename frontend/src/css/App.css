@@ -1,6 +1,10 @@
-.recipe-app {
-  max-width: 1200px;
-  margin: 0 auto;
-  /* center container */
-  padding: 400px;
+.main-content {
+  background-color: black;
+  flex: 1;
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
 }
