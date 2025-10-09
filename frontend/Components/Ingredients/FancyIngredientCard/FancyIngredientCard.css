@@ -10,7 +10,7 @@
     bottom: 110%;           /* above the card */
     left: 50%;
     transform: translateX(-50%) translateY(4px);
-    background: rgba(17, 24, 39, 0.98); /* #111827 */
+    background: rgba(17, 24, 39, 0.99); /* #111827 */
     color: #e5e7eb;         /* slate-200 */
     padding: 8px 10px;
     border-radius: 8px;
