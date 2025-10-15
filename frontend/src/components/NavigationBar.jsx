@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import "../css/NavigationBar.css"
 import DefaultProfilePicture from "../assets/DefaultProfilePicture.png"
-import logo2 from "../assets/logo2.png"
+import logo from "../assets/logo.png"
 
 function NavigationBar() {
 
@@ -10,7 +10,10 @@ function NavigationBar() {
             <div className='nav-container'>
                 {/* logo */}
                 <Link to="/" className="nav-logo">
-                    <img src={logo2} alt="Recipe App" />
+                    <img
+                        src={logo}
+                        alt="Logo"
+                    />
                 </Link>
 
                 {/* search options */}
