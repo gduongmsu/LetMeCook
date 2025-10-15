@@ -1,21 +1,43 @@
 import { Link } from "react-router-dom"
 import "../css/NavigationBar.css"
+import DefaultProfilePicture from "../assets/DefaultProfilePicture.png"
+import logo2 from "../assets/logo2.png"
 
 function NavigationBar() {
 
-    return <nav className="navigation-bar">
-        <div className='navigation-bar-brand'>
-            <div className="logo">
-                <Link to="/">Recipe App</Link>
-            </div>
-            <div className="navigation-bar-links">
-                {/* links go here */}
-                <Link to="/test-home" className="nav-link">Home</Link>
-            </div>
+    return (
+        <nav className="navigation-bar">
+            <div className='nav-container'>
+                {/* logo */}
+                <Link to="/" className="nav-logo">
+                    <img src={logo2} alt="Recipe App" />
+                </Link>
 
-        </div>
-    </nav>
+                {/* search options */}
+                <div className="nav-center">
+                    <div className="nav-name">
+                        <Link to="/search-by-name">Name</Link>
+                    </div>
+                    <div className="nav-ingredients">
+                        <Link to="/">Ingredients</Link>
+                    </div>
+                    <div className="nav-nutrition">
+                        <Link to="/search-by-nutrition">Nutrition</Link>
+                    </div>
+                </div>
 
+                {/* profile */}
+                <div className="nav-profile">
+                    <img
+                        src={DefaultProfilePicture}
+                        alt="Profile"
+                        className="profile-pic"
+                    />
+                </div>
+            </div>
+        </nav>
+    )
 }
+
 
 export default NavigationBar
