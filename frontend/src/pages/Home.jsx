@@ -131,16 +131,20 @@ function Home() {
 
     // Remove from source list if coming from a list
     if (source === 'with') {
-      setWithList(withList.filter(item => item.id !== ingredient.id))
+      setWithList(prev => prev.filter(item => item.id !== ingredient.id))
     } else if (source === 'without') {
-      setWithoutList(withoutList.filter(item => item.id !== ingredient.id))
+      setWithoutList(prev => prev.filter(item => item.id !== ingredient.id))
     }
 
     // Add to target list (prevent duplicates)
-    if (targetList === 'with' && !withList.find(item => item.id === ingredient.id)) {
-      setWithList([...withList, ingredient])
-    } else if (targetList === 'without' && !withoutList.find(item => item.id === ingredient.id)) {
-      setWithoutList([...withoutList, ingredient])
+    if (targetList === 'with') {
+      setWithList(prev => {
+                    if (prev.some(item => item.id === ingredient.id)) return prev;
+                    return [...prev, ingredient]});
+    } else if (targetList === 'without') {
+      setWithoutList(prev => {
+                        if (prev.some(item => item.id === ingredient.id)) return prev;
+                        return [...prev, ingredient]});
     }
 
     setDraggedIngredient(null)
@@ -225,6 +229,7 @@ function Home() {
 
             <Search
                 include={withList.map((i) => i.name).join(" ")}
+                exclude={withoutList.map((i) => i.name).join(",")}
                 handleDataFromSearch={handleDataFromSearch}
             />
 

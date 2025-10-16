@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 const BASE = "https://api.spoonacular.com/recipes/complexSearch";
 const apiKey = import.meta.env.VITE_SPOONACULAR_KEY;
 
-export default function Search({ include, handleDataFromSearch }) {
+export default function Search({ include, exclude, handleDataFromSearch }) {
     const [resp, setResp] = useState(null);
     const [status, setStatus] = useState("idle"); // idle|loading|error|success
     const [err, setErr] = useState("");
 
     useEffect(() => {
         async function fetchFood() {
-            if (!include) return;
+            if (!include && !exclude) return;
             if (!apiKey) {
                 setStatus("error");
                 setErr("Missing API key. Set VITE_SPOONACULAR_KEY in frontend/.env");
@@ -23,8 +23,10 @@ export default function Search({ include, handleDataFromSearch }) {
                 setErr("");
                 setResp(null);
 
+                console.log("EXCLUDED "+ exclude);
                 const qs = new URLSearchParams({
                     query: include,
+                    excludeIngredients: exclude,
                     number: "10",
                     apiKey,
                 });
@@ -55,7 +57,7 @@ export default function Search({ include, handleDataFromSearch }) {
         }
 
         fetchFood();
-    }, [include]);
+    }, [include, exclude]);
 
     return (
         <div className="SearchReturn" style={{ textAlign: "center", opacity: 0.6 }}>

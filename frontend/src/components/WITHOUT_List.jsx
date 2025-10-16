@@ -13,7 +13,7 @@ function WITHOUT_List({ ingredients, onRemove, onDrop, onDragOver }) {
           <p className="empty-message">Drag ingredients here to exclude from search</p>
         ) : (
           ingredients.map((ingredient, index) => (
-            <div key={ingredient.id} className="list-item">
+            <div key={ingredient.id ?? `${ingredient.name}-${index}`} className="list-item">
               <img src={ingredient.url} alt={ingredient.name} className="list-item-img" />
               <span>{ingredient.name}</span>
               <button
