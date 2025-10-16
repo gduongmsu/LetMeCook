@@ -34,7 +34,7 @@ export default function FancyIngredientCard({ ingredient, onDragStart, onLeftCli
             </div>
             <div className="meta">
                 <div className="title">{name}</div>
-                <div className="sub">ID: {id}</div>
+                {/* <div className="sub">ID: {id}</div> */}
             </div>
         </div>
     );

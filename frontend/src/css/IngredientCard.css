@@ -1,32 +1,64 @@
-.ingredient-card {
-    background: rgb(102, 38, 38);
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
-}
+/* .navigation-bar {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
 
-.ingredients-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
+} */
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
 }
 
-.container-1 {
-    background-color: blue;
+.nav-logo img {
+    height: 50px;
+    cursor: pointer;
 }
 
-.ingredient-info {
-    background-color: purple;
+.nav-center-container {
     text-align: center;
+    flex: 1;
 }
 
-.ingredient-info h3 {
-    background-color: black;
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 5px;
 }
 
-.ingredient-info p {
-    background-color: grey;
+.nav-center a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-center a:hover {
+    color: green;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: 2px solid green;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.profile-pic:hover {
+    border-color: darkgreen;
 }

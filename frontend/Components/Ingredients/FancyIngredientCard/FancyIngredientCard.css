@@ -1,25 +1,56 @@
 /* Tooltip */
 .fancy-card.has-tip {
     position: relative;
-    outline: none; /* keep clean; focus ring comes from tooltip styles below */
+    outline: none;
+    /* keep clean; focus ring comes from tooltip styles below */
+}
+
+.fancy-card .thumb {
+    width: 140px;
+    /* adjust this for card width */
+    height: 140px;
+    /* fixed height for uniform layout */
+    overflow: hidden;
+    /* hides any part of image that exceeds the box */
+    border-radius: 10px;
+    /* smooth corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2a2a2a;
+    /* fallback color */
+}
+
+
+.fancy-card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* keeps aspect ratio but fills the box */
+    border-radius: 8px;
 }
 
 .fancy-card.has-tip::after {
     content: attr(data-tip);
     position: absolute;
-    bottom: 110%;           /* above the card */
+    bottom: 110%;
+    /* above the card */
     left: 50%;
     transform: translateX(-50%) translateY(4px);
-    background: rgba(17, 24, 39, 0.99); /* #111827 */
-    color: #e5e7eb;         /* slate-200 */
+    background: rgba(17, 24, 39, 0.99);
+    /* #111827 */
+    color: #e5e7eb;
+    /* slate-200 */
     padding: 8px 10px;
     border-radius: 8px;
     border: 1px solid #2a2f3a;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    white-space: pre;        /* keep newline from data-tip */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    white-space: pre;
+    /* keep newline from data-tip */
     font-size: 12px;
     line-height: 1.25;
-    pointer-events: none;    /* don’t block mouse */
+    pointer-events: none;
+    /* don’t block mouse */
     opacity: 0;
     visibility: hidden;
     transition: opacity 120ms ease, transform 120ms ease, visibility 120ms;
@@ -36,7 +67,8 @@
     transform: translateX(-50%);
     border-width: 6px;
     border-style: solid;
-    border-color: #2a2f3a transparent transparent transparent; /* little border for edge */
+    border-color: #2a2f3a transparent transparent transparent;
+    /* little border for edge */
     opacity: 0;
     visibility: hidden;
     transition: opacity 120ms ease, visibility 120ms;
