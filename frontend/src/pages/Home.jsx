@@ -11,27 +11,27 @@ import IngredientSearch from "../../Components/Ingredients/IngredientSearch.jsx"
 
 
 function Home() {
-  // ===== INGREDIENT DATA ==========================================================================================
-  // Combined ingredient data with all properties for both features
-  const ingredients = [
-    { id: 1, name: "Tomato", url: 'https://spoonacular.com/cdn/ingredients_100x100/tomato.jpg' },
-    { id: 2, name: "Chicken", url: 'https://spoonacular.com/cdn/ingredients_100x100/chicken-breasts.jpg' },
-    { id: 3, name: "Rice", url: 'https://spoonacular.com/cdn/ingredients_100x100/rice-white-long-grain-or-basil.jpg' },
-    { id: 4, name: "Onion", url: 'https://spoonacular.com/cdn/ingredients_100x100/brown-onion.jpg' },
-    { id: 5, name: "Garlic", url: 'https://spoonacular.com/cdn/ingredients_100x100/garlic.jpg' },
-    { id: 6, name: "Cheese", url: 'https://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.jpg' },
-    { id: 7, name: "Pasta", url: 'https://spoonacular.com/cdn/ingredients_100x100/fusilli.jpg' },
-    { id: 8, name: "Beef", url: 'https://spoonacular.com/cdn/ingredients_100x100/beef-cubes-raw.jpg' },
-  ]
+    // ===== INGREDIENT DATA ==========================================================================================
+    // Combined ingredient data with all properties for both features
+    const ingredients = [
+        { id: 1, name: "Tomato", url: 'https://spoonacular.com/cdn/ingredients_100x100/tomato.jpg' },
+        { id: 2, name: "Chicken", url: 'https://spoonacular.com/cdn/ingredients_100x100/chicken-breasts.jpg' },
+        { id: 3, name: "Rice", url: 'https://spoonacular.com/cdn/ingredients_100x100/rice-white-long-grain-or-basil.jpg' },
+        { id: 4, name: "Onion", url: 'https://spoonacular.com/cdn/ingredients_100x100/brown-onion.jpg' },
+        { id: 5, name: "Garlic", url: 'https://spoonacular.com/cdn/ingredients_100x100/garlic.jpg' },
+        { id: 6, name: "Cheese", url: 'https://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.jpg' },
+        { id: 7, name: "Pasta", url: 'https://spoonacular.com/cdn/ingredients_100x100/fusilli.jpg' },
+        { id: 8, name: "Beef", url: 'https://spoonacular.com/cdn/ingredients_100x100/beef-cubes-raw.jpg' },
+    ]
 
-  // ===== STATE MANAGEMENT =========================================================================================
-  // Original search state - using state for data that needs to persist
-  const [searchQuery, setSearchQuery] = useState("")
-  
-  // New drag-and-drop states
-  const [withList, setWithList] = useState([])           // Ingredients to INCLUDE
-  const [withoutList, setWithoutList] = useState([])     // Ingredients to EXCLUDE
-  const [draggedIngredient, setDraggedIngredient] = useState(null) // Currently dragging
+    // ===== STATE MANAGEMENT =========================================================================================
+    // Original search state - using state for data that needs to persist
+    const [searchQuery, setSearchQuery] = useState("")
+
+    // New drag-and-drop states
+    const [withList, setWithList] = useState([])           // Ingredients to INCLUDE
+    const [withoutList, setWithoutList] = useState([])     // Ingredients to EXCLUDE
+    const [draggedIngredient, setDraggedIngredient] = useState(null) // Currently dragging
 
 
 
@@ -40,129 +40,129 @@ function Home() {
     const [selectedId, setSelectedId] = useState(null);
 
     // callback passed to <Search /> (teammate component)
-        const handleDataFromSearch = (jsonString) => {
-            setSearchResults(jsonString);
-        };
+    const handleDataFromSearch = (jsonString) => {
+        setSearchResults(jsonString);
+    };
 
     // parse the JSON string safely into a results array
-        const results = useMemo(() => {
-            try {
-                const parsed = searchResults ? JSON.parse(searchResults) : null;
-                return parsed?.results ?? [];
-            } catch {
-                return [];
-            }
-        }, [searchResults]);
+    const results = useMemo(() => {
+        try {
+            const parsed = searchResults ? JSON.parse(searchResults) : null;
+            return parsed?.results ?? [];
+        } catch {
+            return [];
+        }
+    }, [searchResults]);
 
     // ===== SEARCH HANDLERS =========================================================================================
-  
-  /**
-   * Original search handler - processes the search query
-   * @param {Event} e - Form submit event
-   */
-  const handleSearch = (e) => {
-    e.preventDefault() // Won't clear search bar
-    
-    // Log the search along with selected lists
-    console.log('Search query:', searchQuery)
-    console.log('Searching with:', withList.map(ing => ing.name))
-    console.log('Excluding:', withoutList.map(ing => ing.name))
-    
-    // >>TODO: Implement actual search logic with Spoonacular API  <<<<<<<<<<<<<<<<<<<<<<<<<<---------------
-    alert(`Searching for: ${searchQuery}\nWith: ${withList.map(i => i.name).join(' ')}\nWithout: ${withoutList.map(i => i.name).join(', ')}`)
-    
-    const ingredientsFromList = withList.map(i => i.name).join(' ');
-    console.log(ingredientsFromList)
-    console.log(searchResults)
-  }
 
-  // ===== DRAG AND DROP HANDLERS =========================================================================================
-  
-  /**
-   * Handles the start of a drag operation
-   * {Event} e - The drag event
-   * {Object} ingredient - The ingredient being dragged
-   * {string} source - Where the ingredient is being dragged from
-   */
-  const handleDragStart = (e, ingredient, source) => {
-    setDraggedIngredient({ ingredient, source })
-    e.dataTransfer.effectAllowed = 'move'
-  }
+    /**
+     * Original search handler - processes the search query
+     * @param {Event} e - Form submit event
+     */
+    const handleSearch = (e) => {
+        e.preventDefault() // Won't clear search bar
 
-  /**
-   * Handles drag over event (required to allow dropping)
-   * {Event} e - The drag event
-   */
-  const handleDragOver = (e) => {
-    e.preventDefault()
-    e.dataTransfer.dropEffect = 'move'
-  }
+        // Log the search along with selected lists
+        console.log('Search query:', searchQuery)
+        console.log('Searching with:', withList.map(ing => ing.name))
+        console.log('Excluding:', withoutList.map(ing => ing.name))
 
-  /**
-   * Handles dropping an ingredient into a list
-   * {Event} e - The drop event
-   * {string} targetList - Which list to drop into ('with' or 'without')
-   */
-  const handleDrop = (e, targetList) => {
-    e.preventDefault()
-  
-    if (!draggedIngredient) return
+        // >>TODO: Implement actual search logic with Spoonacular API  <<<<<<<<<<<<<<<<<<<<<<<<<<---------------
+        alert(`Searching for: ${searchQuery}\nWith: ${withList.map(i => i.name).join(' ')}\nWithout: ${withoutList.map(i => i.name).join(', ')}`)
 
-    const { ingredient, source } = draggedIngredient
+        const ingredientsFromList = withList.map(i => i.name).join(' ');
+        console.log(ingredientsFromList)
+        console.log(searchResults)
+    }
 
-    // CHECK: Prevent adding if ingredient already exists in the opposite list
-    if (targetList === 'with') {
+    // ===== DRAG AND DROP HANDLERS =========================================================================================
 
-      // Don't allow adding to WITH if already in WITHOUT
-      if (withoutList.find(item => item.id === ingredient.id)) {
-        alert(`"${ingredient.name}" is already in the WITHOUT list. Remove it first to add to WITH list.`)
+    /**
+     * Handles the start of a drag operation
+     * {Event} e - The drag event
+     * {Object} ingredient - The ingredient being dragged
+     * {string} source - Where the ingredient is being dragged from
+     */
+    const handleDragStart = (e, ingredient, source) => {
+        setDraggedIngredient({ ingredient, source })
+        e.dataTransfer.effectAllowed = 'move'
+    }
+
+    /**
+     * Handles drag over event (required to allow dropping)
+     * {Event} e - The drag event
+     */
+    const handleDragOver = (e) => {
+        e.preventDefault()
+        e.dataTransfer.dropEffect = 'move'
+    }
+
+    /**
+     * Handles dropping an ingredient into a list
+     * {Event} e - The drop event
+     * {string} targetList - Which list to drop into ('with' or 'without')
+     */
+    const handleDrop = (e, targetList) => {
+        e.preventDefault()
+
+        if (!draggedIngredient) return
+
+        const { ingredient, source } = draggedIngredient
+
+        // CHECK: Prevent adding if ingredient already exists in the opposite list
+        if (targetList === 'with') {
+
+            // Don't allow adding to WITH if already in WITHOUT
+            if (withoutList.find(item => item.id === ingredient.id)) {
+                alert(`"${ingredient.name}" is already in the WITHOUT list. Remove it first to add to WITH list.`)
+                setDraggedIngredient(null)
+                return
+            }
+        } else if (targetList === 'without') {
+
+            // Don't allow adding to WITHOUT if already in WITH
+            if (withList.find(item => item.id === ingredient.id)) {
+                alert(`"${ingredient.name}" is already in the WITH list. Remove it first to add to WITHOUT list.`)
+                setDraggedIngredient(null)
+                return
+            }
+        }
+
+        // Remove from source list if coming from a list
+        if (source === 'with') {
+            setWithList(withList.filter(item => item.id !== ingredient.id))
+        } else if (source === 'without') {
+            setWithoutList(withoutList.filter(item => item.id !== ingredient.id))
+        }
+
+        // Add to target list (prevent duplicates)
+        if (targetList === 'with' && !withList.find(item => item.id === ingredient.id)) {
+            setWithList([...withList, ingredient])
+        } else if (targetList === 'without' && !withoutList.find(item => item.id === ingredient.id)) {
+            setWithoutList([...withoutList, ingredient])
+        }
+
         setDraggedIngredient(null)
-        return
-      }
-    } else if (targetList === 'without') {
-
-      // Don't allow adding to WITHOUT if already in WITH
-      if (withList.find(item => item.id === ingredient.id)) {
-        alert(`"${ingredient.name}" is already in the WITH list. Remove it first to add to WITHOUT list.`)
-        setDraggedIngredient(null)
-        return
-      }
     }
 
-    // Remove from source list if coming from a list
-    if (source === 'with') {
-      setWithList(withList.filter(item => item.id !== ingredient.id))
-    } else if (source === 'without') {
-      setWithoutList(withoutList.filter(item => item.id !== ingredient.id))
+    /**
+     * Removes an ingredient from the WITH list
+     * {number} indexToRemove - Index of ingredient to remove
+     */
+    const removeFromWithList = (indexToRemove) => {
+        setWithList(withList.filter((_, index) => index !== indexToRemove))
     }
 
-    // Add to target list (prevent duplicates)
-    if (targetList === 'with' && !withList.find(item => item.id === ingredient.id)) {
-      setWithList([...withList, ingredient])
-    } else if (targetList === 'without' && !withoutList.find(item => item.id === ingredient.id)) {
-      setWithoutList([...withoutList, ingredient])
+    /**
+     * Removes an ingredient from the WITHOUT list
+     * {number} indexToRemove - Index of ingredient to remove
+     */
+    const removeFromWithoutList = (indexToRemove) => {
+        setWithoutList(withoutList.filter((_, index) => index !== indexToRemove))
     }
 
-    setDraggedIngredient(null)
-  }
-
-  /**
-   * Removes an ingredient from the WITH list
-   * {number} indexToRemove - Index of ingredient to remove
-   */
-  const removeFromWithList = (indexToRemove) => {
-    setWithList(withList.filter((_, index) => index !== indexToRemove))
-  }
-
-  /**
-   * Removes an ingredient from the WITHOUT list
-   * {number} indexToRemove - Index of ingredient to remove
-   */
-  const removeFromWithoutList = (indexToRemove) => {
-    setWithoutList(withoutList.filter((_, index) => index !== indexToRemove))
-  }
-
-  // ===== RENDER =========================================================================================
+    // ===== RENDER =========================================================================================
     return (
         <div className="home">
             <h1>Recipe Lookup by Ingredients</h1>

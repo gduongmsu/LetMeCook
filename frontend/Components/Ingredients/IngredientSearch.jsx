@@ -6,14 +6,14 @@ import { ingredientImgUrl } from "../../src/utils/spoonacular.js";
 const BASE = "https://api.spoonacular.com/food/ingredients/search";
 
 export default function IngredientSearch({
-                                             query = "",
-                                             number = 16,
-                                             ttlMs = 10 * 60 * 1000, // 10 min cache
-                                             onResults,
-                                             onCardDragStart,
-                                             onCardLeftClick,
-                                             onCardRightClick,
-                                         }) {
+    query = "",
+    number = 16,
+    ttlMs = 10 * 60 * 1000, // 10 min cache
+    onResults,
+    onCardDragStart,
+    onCardLeftClick,
+    onCardRightClick,
+}) {
     const [status, setStatus] = useState("idle");
     const [err, setErr] = useState("");
     const [items, setItems] = useState([]);
@@ -97,8 +97,9 @@ export default function IngredientSearch({
                 <div
                     style={{
                         display: "grid",
-                        gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-                        gap: 16,
+                        gridTemplateColumns: "repeat(3, 1fr)",
+                        gap: 20,
+                        justifyItems: "center",
                     }}
                 >
                     {items.map((ing) => (

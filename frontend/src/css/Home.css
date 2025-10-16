@@ -39,11 +39,13 @@
 .center-section {
     flex: 1 1 auto !important;
     max-width: 800px !important;
-    min-width: 0 !important; /* CRITICAL: allows flex item to shrink */
+    min-width: 0 !important;
+    /* CRITICAL: allows flex item to shrink */
     display: flex;
     flex-direction: column;
     gap: 20px;
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden;
+    /* Prevent overflow */
 }
 
 /* ===== SEARCH FORM ===== */
@@ -98,10 +100,13 @@
     gap: 15px;
     min-height: 350px;
     max-height: 500px;
-    width: 100%; /* Stay within parent */
-    max-width: 100%; /* Don't exceed parent */
+    width: 100%;
+    /* Stay within parent */
+    max-width: 100%;
+    /* Don't exceed parent */
     overflow-y: auto;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
     padding: 20px;
     background-color: #1e1e1e;
     border-radius: 8px;
