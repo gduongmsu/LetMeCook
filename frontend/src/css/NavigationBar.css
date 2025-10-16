@@ -1,5 +1,5 @@
 .navigation-bar {
-    background-color: #F0BB78;
+    background-color: #543A14;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -45,7 +45,8 @@
 
 .search-by {
     font-size: x-large;
-    color: #543A14
+    color: #FFF0DC;
+    padding-left: 30px;
 }
 
 
@@ -62,7 +63,7 @@
 .nav-container .nav-name:hover,
 .nav-container .nav-ingredients:hover,
 .nav-container .nav-nutrition:hover {
-    background-color: #543A14;
+    background-color: #F0BB78;
     border-color: #543A14;
     transform: scale(1.05);
 }
@@ -71,7 +72,7 @@
 .nav-container .nav-ingredients a,
 .nav-container .nav-nutrition a {
     text-decoration: none;
-    color: #131010;
+    color: #543A14;
     font-weight: 500;
     font-size: 0.95rem;
 }
