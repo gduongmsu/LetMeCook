@@ -131,35 +131,23 @@ function Home() {
 
         // Remove from source list if coming from a list
         if (source === 'with') {
-            setWithList(withList.filter(item => item.id !== ingredient.id))
+          setWithList(prev => prev.filter(item => item.id !== ingredient.id))
         } else if (source === 'without') {
-            setWithoutList(withoutList.filter(item => item.id !== ingredient.id))
+          setWithoutList(prev => prev.filter(item => item.id !== ingredient.id))
         }
 
         // Add to target list (prevent duplicates)
-        if (targetList === 'with' && !withList.find(item => item.id === ingredient.id)) {
-            setWithList([...withList, ingredient])
-        } else if (targetList === 'without' && !withoutList.find(item => item.id === ingredient.id)) {
-            setWithoutList([...withoutList, ingredient])
+        if (targetList === 'with') {
+          setWithList(prev => {
+                        if (prev.some(item => item.id === ingredient.id)) return prev;
+                        return [...prev, ingredient]});
+        } else if (targetList === 'without') {
+          setWithoutList(prev => {
+                            if (prev.some(item => item.id === ingredient.id)) return prev;
+                            return [...prev, ingredient]});
         }
 
         setDraggedIngredient(null)
-    }
-
-    /**
-     * Removes an ingredient from the WITH list
-     * {number} indexToRemove - Index of ingredient to remove
-     */
-    const removeFromWithList = (indexToRemove) => {
-        setWithList(withList.filter((_, index) => index !== indexToRemove))
-    }
-
-    /**
-     * Removes an ingredient from the WITHOUT list
-     * {number} indexToRemove - Index of ingredient to remove
-     */
-    const removeFromWithoutList = (indexToRemove) => {
-        setWithoutList(withoutList.filter((_, index) => index !== indexToRemove))
     }
 
     // ===== RENDER =========================================================================================
@@ -225,6 +213,7 @@ function Home() {
 
             <Search
                 include={withList.map((i) => i.name).join(" ")}
+                exclude={withoutList.map((i) => i.name).join(",")}
                 handleDataFromSearch={handleDataFromSearch}
             />
 
