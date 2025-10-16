@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function RecipeById({ id, onData }) {
     const [recipe, setRecipe] = useState(null);
@@ -68,7 +70,30 @@ export default function RecipeById({ id, onData }) {
                 boxShadow: "0 0 10px rgba(0,0,0,0.3)",
             }}
         >
-            <h3 style={{ marginTop: 0 }}>{recipe.title}</h3>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <h3 style={{ margin: 0 }}>{recipe.title}</h3>
+                <Link
+                    to={`/recipes/${recipe.id}`}
+                    style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "22px",
+                        height: "22px",
+                        backgroundColor: "#374151",
+                        color: "#60a5fa",
+                        borderRadius: "4px",
+                        textDecoration: "none",
+                        fontSize: "0.9rem",
+                        cursor: "pointer",
+                        transition: "background-color 0.2s",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4b5563")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#374151")}
+                >
+                    ⧉
+                </Link>
+            </div>
             {recipe.image && (
                 <img
                     src={recipe.image}

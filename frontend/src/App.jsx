@@ -1,4 +1,5 @@
 import Home from './pages/Home.jsx';
+import RecipePage from './pages/RecipePage.jsx';
 import NavigationBar from './components/NavigationBar.jsx';
 import { Routes, Route } from 'react-router-dom';
 import './css/App.css';
@@ -12,6 +13,7 @@ function App() {
             <main className="main-content">
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/recipes/:id" element={<RecipePage />} />
                 </Routes>
             </main>
         </div>
