@@ -149,7 +149,21 @@ function Home() {
 
         setDraggedIngredient(null)
     }
+    /**
+     * Removes an ingredient from the WITH list
+     * {number} indexToRemove - Index of ingredient to remove
+     */
+    const removeFromWithList = (indexToRemove) => {
+        setWithList(withList.filter((_, index) => index !== indexToRemove))
+    }
 
+    /**
+     * Removes an ingredient from the WITHOUT list
+     * {number} indexToRemove - Index of ingredient to remove
+     */
+    const removeFromWithoutList = (indexToRemove) => {
+        setWithoutList(withoutList.filter((_, index) => index !== indexToRemove))
+    }
     // ===== RENDER =========================================================================================
     return (
         <div className="home">
