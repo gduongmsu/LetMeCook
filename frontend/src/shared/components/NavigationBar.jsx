@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import "../css/NavigationBar.css"
-import DefaultProfilePicture from "../assets/DefaultProfilePicture.png"
-import logo from "../assets/logo.png"
+import "../../shared/styles/NavigationBar.css"
+import DefaultProfilePicture from "../../assets/images/DefaultProfilePicture.png"
+import logo from "../../assets/images/logo.png"
 
 function NavigationBar() {
     return (
@@ -46,3 +46,5 @@ function NavigationBar() {
 }
 
 export default NavigationBar
+
+

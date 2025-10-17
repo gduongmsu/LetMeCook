@@ -1,4 +1,4 @@
-import "../css/IngredientCard.css"
+import "./IngredientCard.css"
 
 function IngredientCard({ ingredient }) {
     return (

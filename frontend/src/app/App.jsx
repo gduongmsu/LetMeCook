@@ -1,10 +1,9 @@
-import Home from './pages/Home.jsx';
-import RecipePage from './pages/RecipePage.jsx';
-import NavigationBar from './components/NavigationBar.jsx';
+import Home from '../features/ingredients/pages/Home.jsx';
+import RecipePage from '../features/recipe/pages/RecipePage.jsx';
+import NavigationBar from '../shared/components/NavigationBar.jsx';
 import { Routes, Route } from 'react-router-dom';
-import './css/App.css';
-import RecipeCard from '../Components/RecipeCard/RecipeCard';
-import Search from '../Components/Search/Search.jsx';
+import '../shared/styles/App.css';
+import Search from '../features/search/components/Search.jsx';
 
 function App() {
     return (
@@ -21,3 +20,6 @@ function App() {
 }
 
 export default App;
+
+
+

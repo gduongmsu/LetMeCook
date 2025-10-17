@@ -1,12 +1,12 @@
 // ===== IMPORTS ==========================================================================================
 import { useState, useMemo } from "react"
-import IngredientCard from "../components/IngredientCard"
+import IngredientCard from "../components/IngredientCard.jsx"
 import WITH_List from '../components/WITH_List'
 import WITHOUT_List from '../components/WITHOUT_List'
-import "../css/Home.css"
-import Search from "../../Components/Search/Search.jsx"
-import RecipeById from "../../Components/Recipe/RecipeById.jsx";
-import IngredientSearch from "../../Components/Ingredients/IngredientSearch.jsx";
+import "./Home.css"
+import Search from "../../search/components/Search.jsx"
+import RecipeById from "../../recipe/components/RecipeById.jsx";
+import IngredientSearch from "../../search/components/IngredientSearch.jsx";
 
 
 
@@ -300,3 +300,7 @@ function Home() {
 }
 
 export default Home
+
+
+
+

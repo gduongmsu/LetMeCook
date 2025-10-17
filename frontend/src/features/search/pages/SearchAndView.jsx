@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import Search from "../Search/Search.jsx";           // ← use teammate's component as-is
-import RecipeById from "../Recipe/RecipeById.jsx";   // ← your new single-recipe component
+import Search from "../components/Search.jsx";           // ← use teammate's component as-is
+import RecipeById from "../../recipe/components/RecipeById.jsx";   // ← your new single-recipe component
 
 /**
  * Props:
@@ -71,3 +71,4 @@ export default function SearchAndView({ include }) {
         </div>
     );
 }
+
