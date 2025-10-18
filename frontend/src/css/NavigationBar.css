@@ -22,7 +22,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #F0BB78;
+    border: 2px solid #543A14;
     overflow: hidden;
     /* clips the image to the circle */
     display: flex;
@@ -40,7 +40,7 @@
 
 .nav-logo:hover {
     transform: scale(1.05);
-    border-color: #543A14;
+    border-color: #F0BB78;
 }
 
 .search-by {
@@ -94,7 +94,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #F0BB78;
+    border: 2px solid #543A14;
     object-fit: cover;
     transition: all 0.3s;
 }
@@ -106,5 +106,5 @@
 
 .profile-pic:hover {
     transform: scale(1.05);
-    border-color: #543A14;
+    border-color: #F0BB78;
 }

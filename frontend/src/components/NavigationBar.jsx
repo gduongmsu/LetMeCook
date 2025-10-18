@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import "../css/NavigationBar.css"
 import DefaultProfilePicture from "../assets/DefaultProfilePicture.png"
 import logo from "../assets/logo.png"
+import leaf from "../assets/leaf.png"
 
 function NavigationBar() {
     return (
@@ -10,7 +11,7 @@ function NavigationBar() {
 
                 {/* logo */}
                 <Link to="/" className="nav-logo">
-                    <img src={logo} alt="Logo" />
+                    <img src={leaf} alt="Logo" />
                 </Link>
 
                 {/* centered search section */}
