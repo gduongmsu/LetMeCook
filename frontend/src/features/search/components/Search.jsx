@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const BASE = "https://api.spoonacular.com/recipes/complexSearch";
 const apiKey = import.meta.env.VITE_SPOONACULAR_KEY;
 
-export default function Search({ include, exclude, handleDataFromSearch }) {
+export default function Search({ include, exclude, intolerances = [], handleDataFromSearch }) {
     const [resp, setResp] = useState(null);
     const [status, setStatus] = useState("idle"); // idle|loading|error|success
     const [err, setErr] = useState("");
@@ -24,12 +24,19 @@ export default function Search({ include, exclude, handleDataFromSearch }) {
                 setResp(null);
 
                 console.log("EXCLUDED "+ exclude);
+                console.log("INTOLERANCES " + (intolerances.length > 0 ? intolerances.join(",") : "None"));
+                
                 const qs = new URLSearchParams({
                     query: include,
                     excludeIngredients: exclude,
                     number: "10",
                     apiKey,
                 });
+
+                // Add intolerances parameter if any are selected
+                if (intolerances.length > 0) {
+                    qs.set("intolerances", intolerances.join(","));
+                }
 
                 const url = `${BASE}?${qs.toString()}`;
                 const res = await fetch(url);
@@ -57,7 +64,7 @@ export default function Search({ include, exclude, handleDataFromSearch }) {
         }
 
         fetchFood();
-    }, [include, exclude]);
+    }, [include, exclude, JSON.stringify(intolerances)]);
 
     return (
         <div className="SearchReturn" style={{ textAlign: "center", opacity: 0.6 }}>
