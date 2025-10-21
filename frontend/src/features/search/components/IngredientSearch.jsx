@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import FancyIngredientCard from "./FancyIngredientCard/FancyIngredientCard.jsx";
-import cache from "../../src/lib/ttlCache.js";
-import { ingredientImgUrl } from "../../src/utils/spoonacular.js";
+import cache from "../../../lib/ttlCache.js";
+import { ingredientImgUrl } from "../../../utils/spoonacular.js";
 
 const BASE = "https://api.spoonacular.com/food/ingredients/search";
 

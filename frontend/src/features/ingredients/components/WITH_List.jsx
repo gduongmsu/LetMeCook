@@ -1,24 +1,24 @@
-import '../css/WITHOUT_List.css'
+import './WITH_List.css'
 
-function WITHOUT_List({ ingredients, onRemove, onDrop, onDragOver }) {
+function WITH_List({ ingredients, onRemove, onDrop, onDragOver }) {
   return (
     <div 
-      className="without-list-container"
-      onDrop={(e) => onDrop(e, 'without')}
+      className="with-list-container"
+      onDrop={(e) => onDrop(e, 'with')}
       onDragOver={onDragOver}
     >
-      <h3 className="list-title">WITHOUT (Exclude)</h3>
+      <h3 className="list-title">WITH (Include)</h3>
       <div className="list-content">
         {ingredients.length === 0 ? (
-          <p className="empty-message">Drag ingredients here to exclude from search</p>
+          <p className="empty-message">Drag ingredients here to include in search</p>
         ) : (
           ingredients.map((ingredient, index) => (
-            <div key={ingredient.id ?? `${ingredient.name}-${index}`} className="list-item">
+            <div key={ingredient.id} className="list-item">
               <img src={ingredient.url} alt={ingredient.name} className="list-item-img" />
               <span>{ingredient.name}</span>
               <button
                 className="remove-btn"
-                onClick={() => onRemove(index, 'without')}
+                onClick={() => onRemove(index, 'with')}
               >
                 ×
               </button>
@@ -30,4 +30,4 @@ function WITHOUT_List({ ingredients, onRemove, onDrop, onDragOver }) {
   )
 }
 
-export default WITHOUT_List
+export default WITH_List

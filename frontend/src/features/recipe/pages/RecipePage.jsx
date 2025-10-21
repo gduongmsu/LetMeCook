@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import RecipeById from "../../Components/Recipe/RecipeById";
+import RecipeById from "../../recipe/components/RecipeById.jsx";
 
 export default function RecipePage() {
     const { id } = useParams();
