@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import "../css/NavigationBar.css"
-import DefaultProfilePicture from "../assets/DefaultProfilePicture.png"
-import logo from "../assets/logo.png"
-import leaf from "../assets/leaf.png"
+import "../styles/NavigationBar.css"
+import DefaultProfilePicture from "../../assets/images/DefaultProfilePicture.png"
+import logo from "../../assets/images/logo.png"
+import leaf from "../../assets/images/leaf.png"
 
 function NavigationBar() {
     return (
