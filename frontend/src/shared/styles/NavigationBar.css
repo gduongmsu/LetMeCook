@@ -28,7 +28,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: rotate(-20deg);
 }
 
 .nav-logo img {
@@ -37,11 +36,13 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    transform: rotate(-20deg);
 }
 
 .nav-logo:hover {
     transform: scale(1.05);
     border-color: #F0BB78;
+    transform: rotate(-5deg);
 }
 
 .search-by {
