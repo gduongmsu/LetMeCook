@@ -10,6 +10,7 @@
     left: 0;
     top: 0;
     max-height: 95%;
+    border-radius: 10px;
 }
 
 .sidebar-title {

@@ -37,10 +37,19 @@ function RecipeByNutrition() {
 
 
   const handleSelect = (options) => {
-    setSelectedOptions(options); //grab the array
+    setSelectedOptions(options); //grab array
   }
+
+  const handleValueChange = (option, value) => {
+    setFieldValues((prev) => ({
+      ...prev,
+      [option]: value
+    }))
+  }
+
+
   const handleSubmit = () => {
-    alert("Selected filters: " + selectedOptions)
+    alert("Selected filters: " + selectedOptions) //use array
   }
 
 
@@ -54,7 +63,16 @@ function RecipeByNutrition() {
       </div>
 
       <div className="field-layout">
-        <NutritionField />
+        {selectedOptions.map((option) => (
+          <NutritionField
+            key={option}
+            option={option}
+            onValueChange={handleValueChange}
+          />
+
+        ))}
+
+
         <button
           onClick={handleSubmit}
           className="submit-button"
