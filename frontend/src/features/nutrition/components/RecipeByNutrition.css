@@ -16,3 +16,17 @@
 
     width: 100%;
 }
+
+.submit-button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 15rem;
+    width: 15rem;
+    transition: background-color 0.2s;
+}

@@ -1,5 +1,5 @@
 import './RecipeByNutrition.css'
-// import { useState } from 'react';
+import { useState } from 'react';
 import NutritionSideBar from './NutritionSideBar';
 import NutritionField from './NutritionField';
 
@@ -33,8 +33,14 @@ function RecipeByNutrition() {
 
   ];
 
-  const handleSelect = (option) => {
-    alert(option)
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+
+  const handleSelect = (options) => {
+    setSelectedOptions(options); //grab the array
+  }
+  const handleSubmit = () => {
+    alert("Selected filters: " + selectedOptions)
   }
 
 
@@ -49,6 +55,12 @@ function RecipeByNutrition() {
 
       <div className="field-layout">
         <NutritionField />
+        <button
+          onClick={handleSubmit}
+          className="submit-button"
+        >
+          Submit
+        </button>
       </div>
     </div>
   )
