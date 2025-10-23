@@ -1,0 +1,112 @@
+.navigation-bar {
+    background-color: #543A14;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #543A14;
+    overflow: hidden;
+    /* clips the image to the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: rotate(-20deg);
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+    border-color: #F0BB78;
+    transform: rotate(-5deg);
+}
+
+.search-by {
+    font-size: x-large;
+    color: #FFF0DC;
+    padding-left: 30px;
+}
+
+
+.nav-container .nav-name,
+.nav-container .nav-ingredients,
+.nav-container .nav-nutrition {
+    border: 1.5px solid #F0BB78;
+    border-radius: 8px;
+    padding: 6px 14px;
+    transition: all 0.3s ease;
+    background-color: #FFF0DC;
+}
+
+.nav-container .nav-name:hover,
+.nav-container .nav-ingredients:hover,
+.nav-container .nav-nutrition:hover {
+    background-color: #F0BB78;
+    border-color: #543A14;
+    transform: scale(1.05);
+}
+
+.nav-container .nav-name a,
+.nav-container .nav-ingredients a,
+.nav-container .nav-nutrition a {
+    text-decoration: none;
+    color: #543A14;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+}
+
+
+.nav-profile {
+    cursor: pointer;
+}
+
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #543A14;
+    object-fit: cover;
+    transition: all 0.3s;
+}
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    border-color: #F0BB78;
+}
