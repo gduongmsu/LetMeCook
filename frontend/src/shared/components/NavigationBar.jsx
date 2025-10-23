@@ -21,7 +21,7 @@ function NavigationBar() {
                     </div>
                     <div className="nav-center">
                         <div className="nav-name">
-                            <Link to="/search-by-name">Recipe Name</Link>
+                            <Link to="/search-by-recipe-name">Recipe Name</Link>
                         </div>
                         <div className="nav-ingredients">
                             <Link to="/">Ingredients</Link>
