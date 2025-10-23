@@ -1,0 +1,64 @@
+/* .navigation-bar {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+} */
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.nav-logo img {
+    height: 50px;
+    cursor: pointer;
+}
+
+.nav-center-container {
+    text-align: center;
+    flex: 1;
+}
+
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 5px;
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-center a:hover {
+    color: green;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: 2px solid green;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.profile-pic:hover {
+    border-color: darkgreen;
+}

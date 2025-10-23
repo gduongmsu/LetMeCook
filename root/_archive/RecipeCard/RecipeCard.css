@@ -1,0 +1,21 @@
+.card{
+    width: 100%;
+}
+
+.nameHeader{
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.ingredientsNutrition{
+    display: flex;
+    flex-direction: row;
+    background-color: none;
+}
