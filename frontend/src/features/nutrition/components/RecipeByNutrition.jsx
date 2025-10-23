@@ -1,12 +1,56 @@
-
 import './RecipeByNutrition.css'
+import { useState } from 'react';
+import NutritionSideBar from './NutritionSideBar';
+import NutritionField from './NutritionField';
 
-const RecipeByNutrition = () => {
+function RecipeByNutrition() {
+
+  const nutritionOptions = [
+    "minCarbs",
+    "maxCarbs",
+    "minProtein",
+    "maxProtein",
+    "minCalories",
+    "maxCalories",
+    "minFat",
+    "maxFat",
+    "minAlcohol",
+    "maxAlcohol",
+    "minCaffeine",
+    "maxCaffeine",
+    "minCopper",
+    "maxCopper",
+    "minCholine",
+    "maxCholine",
+    "minCholesterol",
+    "maxCholesterol",
+    "minFluoride",
+    "maxFluoride",
+    "minSaturatedFat",
+    "maxSaturatedFat",
+    "minFiber",
+    "maxFiber"
+
+  ];
+
+  const handleSelect = (option) => {
+    alert(option)
+  }
+
+
+
   return (
-    <div className='nutritionText'>
-      55g of protein <br />
-      100 of calcium <br />
-      5g random mineral <br />
+    <div className="layout">
+      <div className="nutrition-sidebar">
+        <NutritionSideBar
+          options={nutritionOptions}
+          onSelect={handleSelect}
+        />
+      </div>
+
+      <div className="field-layout">
+        <NutritionField />
+      </div>
     </div>
   )
 }
