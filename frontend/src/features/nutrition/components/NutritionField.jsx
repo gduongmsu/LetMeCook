@@ -1,10 +1,15 @@
 import './Nutritionfield.css'
 
-function NutritionField() {
+function NutritionField(option) {
 
     return (
-        <div className='main'>Fields will populate here</div>
-    )
+        <div className="field">
+            <div className="field-options">
+
+            </div>
+
+        </div>
+
 }
 
 export default NutritionField
