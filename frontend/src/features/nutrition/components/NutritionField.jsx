@@ -1,14 +1,17 @@
 import './Nutritionfield.css'
 
-function NutritionField(option) {
+function NutritionField(selectedOptions) {
 
     return (
-        <div className="field">
-            <div className="field-options">
-
-            </div>
-
+        <div className='main'>
+            {/* {selectedOptions.map((option) => (
+                <div key={option}>
+                    <label>{option}</label>
+                    <input type="text" placeholder={`Enter ${option}`} />
+                </div>
+            ))} */}
         </div>
+    )
 
 }
 
