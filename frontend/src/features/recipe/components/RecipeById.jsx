@@ -53,6 +53,12 @@ export default function RecipeById({ id, onData }) {
         })();
     }, [id, apiKey, onData]);
 
+    const handlePrint = () => {
+        window.print();
+    }
+
+
+
     // ===== UI RENDERING =====================================================
     if (status === "idle") return <p>Pick a recipe to see details.</p>;
     if (status === "loading") return <p>Loading recipe details…</p>;
@@ -72,8 +78,9 @@ export default function RecipeById({ id, onData }) {
         >
             <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 <h3 style={{ margin: 0 }}>{recipe.title}</h3>
-                <Link
-                    to={`/recipes/${recipe.id}`}
+                <button
+                    onClick={handlePrint}
+                    className="print-button"
                     style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -91,8 +98,8 @@ export default function RecipeById({ id, onData }) {
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4b5563")}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#374151")}
                 >
-                    ⧉
-                </Link>
+                    🖨
+                </button>
             </div>
             {recipe.image && (
                 <img
