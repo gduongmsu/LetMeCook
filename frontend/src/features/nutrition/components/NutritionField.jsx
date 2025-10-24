@@ -20,7 +20,7 @@ function NutritionField({ option, onValueChange }) {
             <label className='nutrition-label'>{option}</label>
             <input
                 type="number"
-                placeholder={`Enter ${option}`}
+                placeholder={`Enter a number`}
                 value={value}
                 onChange={handleChange}
                 className='nutrition-input'

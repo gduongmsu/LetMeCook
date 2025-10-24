@@ -20,15 +20,15 @@ function NavigationBar() {
                         Search by
                     </div>
                     <div className="nav-center">
-                        <div className="nav-name">
-                            <Link to="/search-by-recipe-name">Recipe Name</Link>
-                        </div>
-                        <div className="nav-ingredients">
-                            <Link to="/">Ingredients</Link>
-                        </div>
-                        <div className="nav-nutrition">
-                            <Link to="/search-by-nutrition">Nutrition</Link>
-                        </div>
+                        <Link to="/search-by-recipe-name" className="nav-name">
+                            Recipe Name
+                        </Link>
+                        <Link to="/" className="nav-ingredients">
+                            Ingredients
+                        </Link>
+                        <Link to="/search-by-nutrition" className="nav-nutrition">
+                            Nutrition
+                        </Link>
                     </div>
                 </div>
 
