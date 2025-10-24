@@ -77,7 +77,7 @@ function RecipeByNutrition() {
           onClick={handleSubmit}
           className="submit-button"
         >
-          Submit
+          Search for Recipes
         </button>
       </div>
     </div>

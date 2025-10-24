@@ -28,7 +28,6 @@ function NutritionSideBar({ options, onSelect }) {
                         key={index}
                         className={`sidebar-option ${selected === option ? "selected" : ""
                             }`}
-                    // onClick={() => handleClick(option)}
                     >
                         <input
                             type="checkbox"

@@ -11,17 +11,18 @@
 
 }
 
-/* .nutrition-label-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
+.nutrition-field:hover {
+    transform: translateY(-1px);
+}
+
+
 
 .nutrition-label {
     font-weight: 600;
     font-size: 16px;
     color: white;
     text-align: center;
+    margin-bottom: 2px;
 
     /* might not need if text is already capitalized */
     text-transform: capitalize;
