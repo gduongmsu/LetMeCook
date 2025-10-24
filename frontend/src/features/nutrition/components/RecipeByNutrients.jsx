@@ -1,9 +1,10 @@
-import './RecipeByNutrition.css'
+import './RecipeByNutrients.css'
 import { useState } from 'react';
 import NutritionSideBar from './NutritionSideBar';
 import NutritionField from './NutritionField';
+import { searchRecipeByNutrients } from '../../../api/SearchByNutrients';
 
-function RecipeByNutrition() {
+function RecipeByNutrients() {
 
   const nutritionOptions = [
     "minCarbs",
@@ -34,6 +35,8 @@ function RecipeByNutrition() {
   ];
 
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [recipes, setRecipes] = useState([]) //return recipes, set state as an array (json returned is [])
+  const [fieldValues, setFieldValues] = useState({}) // handles field values which will need to be a dictionary
 
 
   const handleSelect = (options) => {
@@ -48,8 +51,15 @@ function RecipeByNutrition() {
   }
 
 
-  const handleSubmit = () => {
-    alert("Selected filters: " + selectedOptions) //use array
+  const handleSubmit = async () => {
+    try {
+      const results = await searchRecipeByNutrients(fieldValues);
+      setRecipes(results);
+      console.log("Fetched recipes", results);
+    } catch (err) {
+      console.error("Error with fetching recipes:", err);
+    }
+
   }
 
 
@@ -84,4 +94,4 @@ function RecipeByNutrition() {
   )
 }
 
-export default RecipeByNutrition
+export default RecipeByNutrients
