@@ -8,9 +8,9 @@ function NutritionSideBar({ options, onSelect }) {
     const handleClick = (option) => {
         let updateSelected;
         if (selected.includes(option)) {
-            updateSelected = selected.filter((item) => item !== option); //remove if already selected
+            updateSelected = selected.filter((item) => item !== option); //remove filter if already selected
         } else {
-            updateSelected = [...selected, option];
+            updateSelected = [...selected, option]; // adds filter
         }
 
         setSelected(updateSelected)
