@@ -19,29 +19,29 @@ function NutritionSideBar({ options, onSelect }) {
 
 
     return (
-
         <div className="sidebar">
             <h3 className="sidebar-title">Nutrition Filters</h3>
             <div className="sidebar-options">
-                {options.map((option, index) => (
+                {Object.entries(options).map(([key, value]) => (
                     <label
-                        key={index}
-                        className={`sidebar-option ${selected === option ? "selected" : ""
-                            }`}
+                        key={key}
+                        className={`sidebar-option ${selected.includes(key) ? "selected" : ""}`}
                     >
                         <input
                             type="checkbox"
-                            checked={selected.includes(option)}
-                            onChange={() => handleClick(option)}
+                            checked={selected.includes(key)}
+                            onChange={() => handleClick(key)}
                             className="sidebar-checkbox"
                             onClick={(e) => e.stopPropagation()}
-
                         />
-                        <span className="sidebar-option-text">{option}</span>
+                        <span className="sidebar-option-text">
+                            {value.label}
+                            {/* {value.label} ({value.unit}) */}
+                        </span>
                     </label>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 export default NutritionSideBar
