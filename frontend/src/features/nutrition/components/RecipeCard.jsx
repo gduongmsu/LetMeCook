@@ -1,26 +1,21 @@
 import "./RecipeCard.css"
 
-function RecipeCard({ recipe, activeFields }) { //recipe represents each object within the array returned frm spoonacular
+function RecipeCard({ recipe, activeFields, onView }) { //recipe represents each object within the array returned frm spoonacular
 
 
     return (
         <div className="recipe-card">
-            <img
-                src={recipe.image}
-                alt={recipe.title}
-                className="recipe-image"
-            />
-            <div className="recipe-content">
-                <h3 className="recipe-title">
-                    {recipe.title}
-                </h3>
-
-                <div className="recipe-info">
-
-                </div>
-
-            </div>
-
+            {recipe.image && (
+                <img
+                    src={recipe.image}
+                    alt={recipe.title}
+                    className="recipe-card-image"
+                />
+            )}
+            <h3 className="recipe-card-title">{recipe.title}</h3>
+            <button className="view-button" onClick={onView}>
+                View Recipe
+            </button>
         </div>
     )
 }

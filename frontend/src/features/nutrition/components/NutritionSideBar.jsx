@@ -20,7 +20,7 @@ function NutritionSideBar({ options, onSelect }) {
 
     return (
         <div className="sidebar">
-            <h3 className="sidebar-title">Nutrition Filters</h3>
+            <h3 className="sidebar-title">Nutrient Filters</h3>
             <div className="sidebar-options">
                 {Object.entries(options).map(([key, value]) => (
                     <label

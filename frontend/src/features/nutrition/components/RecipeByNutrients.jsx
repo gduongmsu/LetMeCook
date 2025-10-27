@@ -62,7 +62,7 @@ function RecipeByNutrients() {
     },
     maxSaturatedFat: {
       label: "Maximum Saturated Fats",
-      unit: ""
+      unit: "g"
     },
     minFiber: {
       label: "Minimum Fiber",
@@ -142,7 +142,8 @@ function RecipeByNutrients() {
         {selectedOptions.map((option) => (
           <NutritionField
             key={option}
-            option={option}
+            optionKey={option}
+            option={nutritionOptions[option]} //pass full object to grab other data like label
             onValueChange={handleValueChange}
           />
 

@@ -13,7 +13,7 @@ function App() {
                 <Routes>
                     <Route path="/search-by-recipe-name" element={<RecipeByName />} />
                     <Route path="/" element={<Home />} />
-                    <Route path="/search-by-nutrition" element={<RecipeByNutrition />} />
+                    <Route path="/search-by-nutrients" element={<RecipeByNutrition />} />
                 </Routes>
             </main>
         </div>

@@ -35,3 +35,12 @@
     cursor: pointer;
     transition: background-color 0.2s;
 }
+
+/* .recipe-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+
+} */

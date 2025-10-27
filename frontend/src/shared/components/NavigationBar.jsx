@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import "../styles/NavigationBar.css"
 import DefaultProfilePicture from "../../assets/images/DefaultProfilePicture.png"
-import logo from "../../assets/images/logo.png"
 import leaf from "../../assets/images/leaf.png"
 
 function NavigationBar() {
@@ -26,8 +25,8 @@ function NavigationBar() {
                         <Link to="/" className="nav-ingredients">
                             Ingredients
                         </Link>
-                        <Link to="/search-by-nutrition" className="nav-nutrition">
-                            Nutrition
+                        <Link to="/search-by-nutrients" className="nav-nutrition">
+                            Nutrients
                         </Link>
                     </div>
                 </div>

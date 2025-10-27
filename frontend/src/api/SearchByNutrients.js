@@ -23,6 +23,7 @@ export const searchRecipeByNutrients = async (nutritionParams) => { //async allo
 
 
 
+    console.log("fetching uurl:", url)
     try {
         const response = await fetch(url); //fetch starts http request and returns to response object, await pauses this function until something is returned to response
         if (!response.ok) {
@@ -31,16 +32,13 @@ export const searchRecipeByNutrients = async (nutritionParams) => { //async allo
         return await response.json()
     } catch (err) {
         console.error("Error fetching recipe", err);
-        throw err; //throw error back to component 
+        throw err; //throw error back to parent component 
     }
 
 
 
 }
-
-// need to pass data from nutrition components, call api based on this data
-// then grab data (recipes) from spoonacular and display in another component
-
+//example:
 //https://api.spoonacular.com/recipes/findByNutrients?apiKey=API_KEY&minCarbs=10&maxCarbs=500
 
 
