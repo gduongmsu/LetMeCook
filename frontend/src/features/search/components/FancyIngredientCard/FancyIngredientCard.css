@@ -1,34 +1,61 @@
-/* Tooltip */
-.fancy-card.has-tip {
-    position: relative;
-    outline: none;
-    /* keep clean; focus ring comes from tooltip styles below */
+/* Make each card fill its grid track and stack content vertically */
+.fancy-card {
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fancy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .fancy-card .thumb {
-    width: 140px;
-    /* adjust this for card width */
-    height: 140px;
-    /* fixed height for uniform layout */
-    overflow: hidden;
-    /* hides any part of image that exceeds the box */
-    border-radius: 10px;
-    /* smooth corners */
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #1a1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #2a2a2a;
-    /* fallback color */
 }
-
 
 .fancy-card .thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* keeps aspect ratio but fills the box */
-    border-radius: 8px;
 }
+
+.fancy-card .meta {
+    padding: 8px;
+    text-align: center;
+}
+
+.fancy-card .title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Tooltip styles stay the same */
+.fancy-card.has-tip { position: relative; outline: none; }
+
+.fancy-card .name {
+    margin-top: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 .fancy-card.has-tip::after {
     content: attr(data-tip);
@@ -87,4 +114,38 @@
 .fancy-card.has-tip:hover::after,
 .fancy-card.has-tip:focus::after {
     transform: translateX(-50%) translateY(0);
+}
+
+/* Make each card fill its grid cell */
+.cards-grid .fancy-card {
+    width: 100% !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: none !important; /* kill any old fixed widths */
+    min-width: 0 !important;
+}
+
+/* Square image area with full cover */
+.cards-grid .fancy-card .thumb {
+    aspect-ratio: 1 / 1;
+    min-height: 170px;   /* was 220px — smaller */
+}
+
+.cards-grid .fancy-card .thumb img {
+    width: 100%;              /* zoomed out */
+    height: 100%;
+    object-fit: contain;     /* show full image without cropping */
+    border-radius: 10px;     /* optional: keep edges smooth */
+    background-color: #1a1a1a;
+}
+
+.cards-grid .fancy-card .meta {
+    margin-top: 8px;
+    padding: 0 8px 4px; /* added bottom padding */
+    text-align: center;
+}
+
+.cards-grid .fancy-card .title {
+    font-size: 0.95rem;
 }

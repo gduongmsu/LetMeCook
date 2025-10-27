@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import FancyIngredientCard from "./FancyIngredientCard/FancyIngredientCard.jsx";
 import cache from "../../../lib/ttlCache.js";
 import { ingredientImgUrl } from "../../../utils/spoonacular.js";
+import "./IngredientSearch.css";
 
 const BASE = "https://api.spoonacular.com/food/ingredients/search";
 
@@ -94,15 +95,8 @@ export default function IngredientSearch({
             {status === "loading" && <p>Loading ingredients…</p>}
             {status === "error" && <p style={{ color: "crimson" }}>Error: {err}</p>}
             {status === "success" && (
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(3, 1fr)",
-                        gap: 20,
-                        justifyItems: "center",
-                    }}
-                >
-                    {items.map((ing) => (
+                <div className="cards-grid">
+                    {(items ?? []).map((ing) => (
                         <FancyIngredientCard
                             key={ing.id}
                             ingredient={ing}
