@@ -6,9 +6,7 @@ const RecipeByName = () => {
 
     return (
         <div className='NameText'>
-            pizza <br />
-            burger <br />
-            pasta <br />
+            Simple search for recipes.
         </div>
     )
 }

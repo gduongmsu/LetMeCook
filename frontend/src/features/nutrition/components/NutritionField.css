@@ -1,0 +1,46 @@
+.nutrition-field {
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    padding: 12px 16px;
+    height: 3rem;
+    width: 200px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+
+}
+
+.nutrition-field:hover {
+    transform: translateY(-1px);
+}
+
+
+
+.nutrition-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    margin-bottom: 2px;
+
+}
+
+.nutrition-input {
+    padding: 0 10px;
+    width: 170px;
+    align-items: center;
+    font-size: 16px;
+}
+
+.nutrition-input:focus {
+    border-color: #543A14;
+    /* outline: none; */
+    box-shadow: 0 0 4px #FFF0DC;
+}
+
+.nutrition-input:focus {
+    border-color: #543A14;
+    outline: none;
+    box-shadow: 0 0 4px #F0BB78;
+}

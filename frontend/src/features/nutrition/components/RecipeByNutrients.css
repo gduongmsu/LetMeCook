@@ -1,0 +1,46 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.nutrition-sidebar {
+    display: flex;
+    position: relative;
+    height: 100vh;
+}
+
+.field-layout {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-template-columns: repeat(auto-fill, minmax(250px, max-content));
+    gap: 10px;
+    justify-content: start;
+    align-items: start;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    padding: 20px 40px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* .recipe-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+
+} */
