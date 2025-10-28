@@ -1,0 +1,44 @@
+.cards-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, minmax(200px, 245px)); /* +~7% */
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(190px, 230px));
+    }
+}
+@media (max-width: 620px) {
+    .cards-grid {
+        grid-template-columns: minmax(190px, 1fr);
+        justify-content: stretch;
+    }
+}
+
+.scroll-panel {
+    overflow-y: auto;           /* ensure it's the scroller */
+    overflow-x: hidden;         /* no sideways scroll */
+    scrollbar-gutter: stable;   /* reserve space for the scrollbar */
+    padding-right: 12px;        /* keep content clear of the bar */
+    box-sizing: border-box;
+}
+
+/* The wrapper around <IngredientSearch/> */
+.ingredients-grid {
+    /* scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* keep content clear of the vertical scrollbar */
+    scrollbar-gutter: stable both-edges;   /* supported on modern Chromium/Firefox */
+    padding-right: 12px;                   /* safety for overlay scrollbars */
+    box-sizing: border-box;
+
+    /* optional: visual spacing inside the panel */
+    padding-left: 4px;
+}
