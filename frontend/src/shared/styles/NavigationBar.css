@@ -48,7 +48,7 @@
 .search-by {
     font-size: x-large;
     color: #FFF0DC;
-    padding-left: 30px;
+    padding-left: 0;
 }
 
 
@@ -60,6 +60,7 @@
     padding: 6px 14px;
     transition: all 0.3s ease;
     background-color: #FFF0DC;
+    width: 100px;
 }
 
 .nav-container .nav-name:hover,
@@ -68,6 +69,7 @@
     background-color: #F0BB78;
     border-color: #543A14;
     transform: scale(1.05);
+    color: #543A14
 }
 
 .nav-container .nav-name a,

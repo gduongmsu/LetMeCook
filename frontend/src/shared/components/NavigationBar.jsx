@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import "../styles/NavigationBar.css"
 import DefaultProfilePicture from "../../assets/images/DefaultProfilePicture.png"
-import logo from "../../assets/images/logo.png"
 import leaf from "../../assets/images/leaf.png"
 
 function NavigationBar() {
@@ -20,15 +19,15 @@ function NavigationBar() {
                         Search by
                     </div>
                     <div className="nav-center">
-                        <div className="nav-name">
-                            <Link to="/search-by-recipe-name">Recipe Name</Link>
-                        </div>
-                        <div className="nav-ingredients">
-                            <Link to="/">Ingredients</Link>
-                        </div>
-                        <div className="nav-nutrition">
-                            <Link to="/search-by-nutrition">Nutrition</Link>
-                        </div>
+                        <Link to="/search-by-recipe-name" className="nav-name">
+                            Recipe Name
+                        </Link>
+                        <Link to="/" className="nav-ingredients">
+                            Ingredients
+                        </Link>
+                        <Link to="/search-by-nutrients" className="nav-nutrition">
+                            Nutrients
+                        </Link>
                     </div>
                 </div>
 
