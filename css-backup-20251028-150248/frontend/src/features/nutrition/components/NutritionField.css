@@ -1,4 +1,4 @@
-﻿.nutrition-field {
+.nutrition-field {
     display: flex;
     flex-direction: column;
     background-color: #1c1c1c;
@@ -34,13 +34,13 @@
 }
 
 .nutrition-input:focus {
-    border-color: var(--walnut);
+    border-color: #543A14;
     /* outline: none; */
     box-shadow: 0 0 4px #FFF0DC;
 }
 
 .nutrition-input:focus {
-    border-color: var(--walnut);
+    border-color: #543A14;
     outline: none;
     box-shadow: 0 0 4px #F0BB78;
 }

@@ -1,11 +1,10 @@
+﻿// frontend/src/app/App.jsx
 import Home from '../features/ingredients/pages/Home.jsx';
 import NavigationBar from '../shared/components/NavigationBar.jsx';
 import { Routes, Route } from 'react-router-dom';
 import '../shared/styles/App.css';
-import RecipeByNutrition from '../features/nutrition/components/RecipeByNutrients.jsx';
-import RecipeByName from '../features/recipe/pages/RecipeByName.jsx';
 
-function App() {
+export default function App() {
     return (
         <div>
             <NavigationBar />
@@ -20,7 +19,6 @@ function App() {
     );
 }
 
-export default App;
-
-
-
+// keep imports for these:
+import RecipeByNutrition from '../features/nutrition/components/RecipeByNutrients.jsx';
+import RecipeByName from '../features/recipe/pages/RecipeByName.jsx';

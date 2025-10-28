@@ -1,5 +1,5 @@
-﻿.navigation-bar {
-    background-color: var(--walnut);
+.navigation-bar {
+    background-color: #543A14;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@
 
 .search-by {
     font-size: x-large;
-    color: var(--cream);
+    color: #FFF0DC;
     padding-left: 0;
 }
 
@@ -59,24 +59,24 @@
     border-radius: 8px;
     padding: 6px 14px;
     transition: all 0.3s ease;
-    background-color: var(--roasted);
+    background-color: #FFF0DC;
     width: 100px;
 }
 
 .nav-container .nav-name:hover,
 .nav-container .nav-ingredients:hover,
 .nav-container .nav-nutrition:hover {
-    background-color: var(--butterscotch);
-    border-color: var(--walnut);
+    background-color: #F0BB78;
+    border-color: #543A14;
     transform: scale(1.05);
-    color: var(--walnut)
+    color: #543A14
 }
 
 .nav-container .nav-name a,
 .nav-container .nav-ingredients a,
 .nav-container .nav-nutrition a {
     text-decoration: none;
-    color: var(--walnut);
+    color: #543A14;
     font-weight: 500;
     font-size: 0.95rem;
 }

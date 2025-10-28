@@ -1,4 +1,4 @@
-﻿/* Make each card fill its grid track and stack content vertically */
+/* Make each card fill its grid track and stack content vertically */
 .fancy-card {
     background-color: #2a2a2a;
     border-radius: 12px;
@@ -39,7 +39,7 @@
 .fancy-card .title {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--cream);
+    color: #fff;
     line-height: 1.3;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -77,7 +77,7 @@
     font-size: 12px;
     line-height: 1.25;
     pointer-events: none;
-    /* donâ€™t block mouse */
+    /* don’t block mouse */
     opacity: 0;
     visibility: hidden;
     transition: opacity 120ms ease, transform 120ms ease, visibility 120ms;
@@ -129,7 +129,7 @@
 /* Square image area with full cover */
 .cards-grid .fancy-card .thumb {
     aspect-ratio: 1 / 1;
-    min-height: 170px;   /* was 220px â€” smaller */
+    min-height: 170px;   /* was 220px — smaller */
 }
 
 .cards-grid .fancy-card .thumb img {

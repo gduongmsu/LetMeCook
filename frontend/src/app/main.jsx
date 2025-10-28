@@ -1,13 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import '../shared/styles/index.css'
-import App from './App.jsx'
+﻿// frontend/src/app/main.jsx
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+import "../styles/theme.css"; // keep LAST so it wins
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter basename="/LetMeCook">
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
-)
+createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>
+);

@@ -1,0 +1,46 @@
+﻿:root{
+  /* Core brand */
+  --cream:#FFF0DC;
+  --butterscotch:#F0BB78;
+  --walnut:#543A14;
+  --ink:#131010;
+
+  /* App neutrals / surfaces */
+  --coffee:#1B1610;
+  --roasted:#2A2118;
+  --toffee:#3A2E21;
+  --line:#4A3A2A;
+  --muted:#E7D9C5;
+
+  /* States / semantics */
+  --with:#6EA35E;
+  --with-hover:#5A8C4E;
+  --without:#C24C38;
+  --without-hover:#A93F2F;
+  --info:#6E8C84;
+  --warn:#D99A3B;
+  --success:#7FB56F;
+
+  /* UX helpers */
+  --focus:#F7D9AF;
+  --radius:14px;
+  --shadow-1:0 6px 16px rgba(19,16,16,.35);
+  --shadow-2:0 10px 32px rgba(19,16,16,.6);
+}
+
+/* === EMERGENCY VISIBILITY PATCH (temporary) === */
+html, body, #root { background: var(--coffee) !important; color: var(--cream) !important; }
+* { color: inherit !important; }
+div, section, main, aside, article, header, footer { background: transparent !important; }
+.WITH_List, .WITH_List .drop-zone,
+.WITHOUT_List, .WITHOUT_List .drop-zone,
+.ingredient-card, .fancy-card, .card,
+.nutrition-sidebar, .NutritionSideBar, .nutrition-panel {
+  background: var(--roasted) !important;
+  border-color: var(--line) !important;
+}
+.search-form .search-input, input.search-input { background: var(--roasted) !important; border:1px solid var(--line) !important; }
+.search-form .search-button, button.search-button { background: var(--butterscotch) !important; color: var(--ink) !important; }
+
+/* DEBUG OUTLINES (remove when done) */
+/* { outline: 1px dashed rgba(240,187,120,0.35) !important; outline-offset: 1px; } */
