@@ -19,6 +19,8 @@ function RecipeCard({ recipe, activeFields, onView }) { //recipe represents each
         </div>
     )
 }
+// for each activefields passes, the recipe should grab all 
+// its activefields and display the nutritin in the preview data
 
 
 export default RecipeCard

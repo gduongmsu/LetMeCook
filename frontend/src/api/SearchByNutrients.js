@@ -32,7 +32,7 @@ export const searchRecipeByNutrients = async (nutritionParams) => { //async allo
         return await response.json()
     } catch (err) {
         console.error("Error fetching recipe", err);
-        throw err; //throw error back to parent component 
+        throw err; //throw error to parent component 
     }
 
 
