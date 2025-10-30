@@ -1,9 +1,12 @@
 
-const BASE = "https://api.spoonacular.com/recipes/findByNutrients";
+const BASE = "https://api.spoonacular.com/recipes/";
 const API_KEY = import.meta.env.VITE_SPOONACULAR_KEY;
 
 // parameter her is an object containing multiple key:value pairs like a dictionary
 // e.g. {"minCarb": 10, "maxCarbs": 20}
+
+//example:
+//https://api.spoonacular.com/recipes/findByNutrients?apiKey=API_KEY&minCarbs=10&maxCarbs=500
 export const searchRecipeByNutrients = async (nutritionParams) => { //async allows for 
 
     //start to build URL, firstly storing {"apiKey": APIK_KEY}
@@ -19,7 +22,7 @@ export const searchRecipeByNutrients = async (nutritionParams) => { //async allo
 
     }
 
-    const url = `${BASE}?${queryParams.toString()}`;
+    const url = `${BASE}findByNutrients?${queryParams.toString()}`;
 
 
 
@@ -35,10 +38,14 @@ export const searchRecipeByNutrients = async (nutritionParams) => { //async allo
         throw err; //throw error to parent component 
     }
 
-
-
 }
-//example:
-//https://api.spoonacular.com/recipes/findByNutrients?apiKey=API_KEY&minCarbs=10&maxCarbs=500
+
+//https://api.spoonacular.com/recipes/636574/information?apiKey=API_KEY&includeNutrition=true
+export const getRecipeById = async (id) => {
+    const res = await fetch(
+        `${BASE}${id}/information?apiKey=${API_KEY}&includeNutrition=true`
+    )
+    return res.json();
+}
 
 

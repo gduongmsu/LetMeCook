@@ -10,83 +10,103 @@ function RecipeByNutrients() {
   const nutritionOptions = {
     minCarbs: {
       label: "Minimum Carbs",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Carbohydrates", // spoonacular key name
     },
     maxCarbs: {
       label: "Maximum Carbs",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Carbohydrates",
     },
     minProtein: {
       label: "Minimum Protein",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Protein",
     },
     maxProtein: {
       label: "Maximum Protein",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Protein",
     },
     minCalories: {
       label: "Minimum Calories",
-      unit: "Kcal"
+      unit: "Kcal",
+      nutrientName: "Calories",
     },
     maxCalories: {
       label: "Maximum Calories",
-      unit: "Kcal"
+      unit: "Kcal",
+      nutrientName: "Calories",
     },
     minFat: {
       label: "Minimum Fat",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Fat",
     },
     maxFat: {
       label: "Maximum Fat",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Fat",
     },
     minCalcium: {
       label: "Minimum Calcium",
-      unit: "mg"
+      unit: "mg",
+      nutrientName: "Calcium",
     },
     maxCalcium: {
       label: "Maximum Calcium",
-      unit: "mg"
+      unit: "mg",
+      nutrientName: "Calcium",
     },
     minCholesterol: {
       label: "Minimum Cholesterol",
-      unit: "mg"
+      unit: "mg",
+      nutrientName: "Cholesterol",
     },
     maxCholesterol: {
       label: "Maximum Cholesterol",
-      unit: "mg"
+      unit: "mg",
+      nutrientName: "Cholesterol",
     },
     minSaturatedFat: {
-      label: "Minimum Saturated Fats",
-      unit: "g"
+      label: "Minimum Saturated Fat",
+      unit: "g",
+      nutrientName: "Saturated Fat",
     },
     maxSaturatedFat: {
-      label: "Maximum Saturated Fats",
-      unit: "g"
+      label: "Maximum Saturated Fat",
+      unit: "g",
+      nutrientName: "Saturated Fat",
     },
     minFiber: {
       label: "Minimum Fiber",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Fiber",
     },
     maxFiber: {
       label: "Maximum Fiber",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Fiber",
     },
     minSodium: {
       label: "Minimum Sodium",
-      unit: "mg"
+      unit: "mg",
+      nutrientName: "Sodium",
     },
     maxSodium: {
       label: "Maximum Sodium",
-      unit: "mg"
+      unit: "mg",
+      nutrientName: "Sodium",
     },
     minSugar: {
       label: "Minimum Sugar",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Sugar",
     },
     maxSugar: {
       label: "Maximum Sugar",
-      unit: "g"
+      unit: "g",
+      nutrientName: "Sugar",
     }
 
     /*
@@ -101,8 +121,9 @@ function RecipeByNutrients() {
   };
 
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [recipes, setRecipes] = useState([]) //return recipes, set state as an array (json returned is [])
-  const [fieldValues, setFieldValues] = useState({}) // handles field values which will need to be a dictionary
+  const [recipes, setRecipes] = useState([]); //return recipes, set state as an array (json returned is [])
+  const [fieldValues, setFieldValues] = useState({}); // handles field values which will need to be a dictionary
+  const [selectedRecipe, setSelectedRecipe] = useState(null); //recipe to view, initially set to null
 
 
   const handleSelect = (options) => {
@@ -121,6 +142,7 @@ function RecipeByNutrients() {
     try {
       const results = await searchRecipeByNutrients(fieldValues);
       setRecipes(results);
+
       console.log("Fetched recipes", results);
     } catch (err) {
       console.error("Error with fetching recipes:", err);
@@ -146,9 +168,7 @@ function RecipeByNutrients() {
             option={nutritionOptions[option]} //pass full object to grab other data like label
             onValueChange={handleValueChange}
           />
-
         ))}
-
 
         <button
           onClick={handleSubmit}
@@ -157,18 +177,46 @@ function RecipeByNutrients() {
           Search for Recipes
         </button>
       </div>
+
       <div className="recipe-results">
         {recipes.length > 0 ? (
           recipes.map((recipe) => ( //iterates over array returned from GET request
             <RecipeCard
               key={recipe.id}
               recipe={recipe}
+              activeFields={selectedOptions.map(option => nutritionOptions[option])}
+              onView={setSelectedRecipe}
             />
           ))
         ) : (
           <p>No recipes found with current filter.</p>
         )}
       </div>
+
+
+      {/* look at Home.jsx and try to use similar styling */}
+      {selectedRecipe && (
+        <div className="recipe-preview">
+          <h2>{selectedRecipe.title}</h2>
+          {selectedRecipe.image && <img src={selectedRecipe.image} alt={selectedRecipe.title} />}
+
+          <h3>Nutrition</h3>
+          <ul>
+            {selectedRecipe.filteredNutrients.map(nutrient => (
+              <li key={nutrient.name}>
+                {nutrient.name}: {nutrient.amount} {nutrient.unit}
+              </li>
+            ))}
+          </ul>
+          <h3>Instructions</h3>
+          <p>{selectedRecipe.instructions || "No instructions available."}</p>
+
+        </div>
+      )}
+
+
+
+
     </div>
 
 

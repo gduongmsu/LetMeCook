@@ -1,14 +1,14 @@
 .layout {
     display: flex;
-    height: 100vh;
     width: 100%;
+    min-height: 100vh;
 }
 
-
-.nutrition-sidebar {
+.main-content {
+    flex: 1;
     display: flex;
-    position: relative;
-    height: 100vh;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .field-layout {
@@ -36,11 +36,13 @@
     transition: background-color 0.2s;
 }
 
-/* .recipe-results {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem;
+.submit-button:hover {
+    background-color: #0a6f0e;
+}
 
-} */
+.recipe-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
