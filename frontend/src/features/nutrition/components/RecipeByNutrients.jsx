@@ -124,10 +124,12 @@ function RecipeByNutrients() {
   const [recipes, setRecipes] = useState([]); //return recipes, set state as an array (json returned is [])
   const [fieldValues, setFieldValues] = useState({}); // handles field values which will need to be a dictionary
   const [selectedRecipe, setSelectedRecipe] = useState(null); //recipe to view, initially set to null
+  const [activeFields, setActiveFields] = useState([]);
 
 
   const handleSelect = (options) => {
     setSelectedOptions(options);
+    setActiveFields(options.map(option => nutritionOptions[option]))
   }
 
   const handleValueChange = (option, value) => {
@@ -184,7 +186,7 @@ function RecipeByNutrients() {
             <RecipeCard
               key={recipe.id}
               recipe={recipe}
-              activeFields={selectedOptions.map(option => nutritionOptions[option])}
+              activeFields={activeFields}
               onView={setSelectedRecipe}
             />
           ))
