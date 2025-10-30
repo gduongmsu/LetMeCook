@@ -1,48 +1,95 @@
-.layout {
+.nutrient-page {
     display: flex;
+    height: 100%;
     width: 100%;
-    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
 }
 
-.main-content {
+
+.content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    gap: 25px;
 }
 
-.field-layout {
+.fields-section {
+    background: transparent;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.fields-container {
     display: grid;
-    grid-auto-rows: min-content;
-    grid-template-columns: repeat(auto-fill, minmax(250px, max-content));
-    gap: 10px;
-    justify-content: start;
-    align-items: start;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
 }
 
 .submit-button {
-    grid-column: 1 / -1;
-    justify-self: center;
-    padding: 20px 40px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px 12px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    background: #3a7afe;
+    border: none;
+    color: white;
+    border-radius: 6px;
+}
+
+.submit-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .submit-button:hover {
-    background-color: #0a6f0e;
+    background: #2f63d4;
 }
 
+
 .recipe-results {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.recipe-wrapper {
+    background: #1c1c1c;
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    /* remove default padding */
+    overflow: hidden;
+}
+
+.recipe-wrapper .recipe-card img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.recipe-details {
+    margin-top: 15px;
+    padding: 12px;
+    background: #1c1c1c1c;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+
+.recipe-wrapper.expanded {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: default;
+}
+
+.recipe-details img {
+    width: 50%;
+    height: 50%;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }

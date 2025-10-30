@@ -154,75 +154,85 @@ function RecipeByNutrients() {
 
 
   return (
-    <div className="layout">
-      <div className="nutrition-sidebar">
+    <div className="nutrient-page">
+
+      {/* sidebar */}
+      <div className="sidebar">
         <NutritionSideBar
-          options={nutritionOptions} //pass whole object
-          onSelect={handleSelect} //
+          options={nutritionOptions}
+          onSelect={handleSelect}
         />
       </div>
 
-      <div className="field-layout">
-        {selectedOptions.map((option) => (
-          <NutritionField
-            key={option}
-            optionKey={option}
-            option={nutritionOptions[option]} //pass full object to grab other data like label
-            onValueChange={handleValueChange}
-          />
-        ))}
+      {/* main content */}
+      <main className="content">
 
-        <button
-          onClick={handleSubmit}
-          className="submit-button"
-        >
-          Search for Recipes
-        </button>
-      </div>
-
-      <div className="recipe-results">
-        {recipes.length > 0 ? (
-          recipes.map((recipe) => ( //iterates over array returned from GET request
-            <RecipeCard
-              key={recipe.id}
-              recipe={recipe}
-              activeFields={activeFields}
-              onView={setSelectedRecipe}
-            />
-          ))
-        ) : (
-          <p>No recipes found with current filter.</p>
-        )}
-      </div>
-
-
-      {/* look at Home.jsx and try to use similar styling */}
-      {selectedRecipe && (
-        <div className="recipe-preview">
-          <h2>{selectedRecipe.title}</h2>
-          {selectedRecipe.image && <img src={selectedRecipe.image} alt={selectedRecipe.title} />}
-
-          <h3>Nutrition</h3>
-          <ul>
-            {selectedRecipe.filteredNutrients.map(nutrient => (
-              <li key={nutrient.name}>
-                {nutrient.name}: {nutrient.amount} {nutrient.unit}
-              </li>
+        {/* field section */}
+        <section className="fields-section">
+          <div className="fields-container">
+            {selectedOptions.map((option) => (
+              <NutritionField
+                key={option}
+                optionKey={option}
+                option={nutritionOptions[option]}
+                onValueChange={handleValueChange}
+              />
             ))}
-          </ul>
-          <h3>Instructions</h3>
-          <p>{selectedRecipe.instructions || "No instructions available."}</p>
+          </div>
 
-        </div>
-      )}
+          {/* submit */}
+          <div className="submit-button-wrapper">
+            {selectedOptions.length > 0 && (
+              <button className="submit-button" onClick={handleSubmit}>
+                Search for Recipes
+              </button>
 
+            )}
+          </div>
+        </section>
 
+        {/* recipe cards */}
+        <section className="recipe-results">
+          {recipes.length > 0 ? (
+            recipes.map((recipe) => (
+              <div key={recipe.id} className="recipe-wrapper">
+                <RecipeCard
+                  recipe={recipe}
+                  activeFields={activeFields}
+                  onView={setSelectedRecipe}
+                />
 
+                {/* expand recipe card on "view" */}
+                {selectedRecipe?.id === recipe.id && (
+                  <div className="recipe-details">
+                    <h2>{selectedRecipe.title}</h2>
+                    {selectedRecipe.image && (
+                      <img src={selectedRecipe.image} alt="" />
+                    )}
 
+                    <h3>Nutrition</h3>
+                    <ul>
+                      {selectedRecipe.filteredNutrients.map(n => (
+                        <li key={n.name}>
+                          {n.name}: {n.amount} {n.unit}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <h3>Instructions</h3>
+                    <p>{selectedRecipe.instructions || "No instructions available."}</p>
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <p>No recipes found with current filters.</p>
+          )}
+        </section>
+
+      </main>
     </div>
-
-
-  )
+  );
 }
 
 export default RecipeByNutrients
